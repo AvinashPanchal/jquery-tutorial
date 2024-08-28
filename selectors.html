@@ -1,0 +1,47 @@
+<!--
+jQuery Selectors: Selectors in jQuery are functions that primarily focus on selecting particular 
+HTML elements and modifying them as per the action they need to perform. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Select Element by Class</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"> </script>
+  
+  <script>
+    // Selecting Elements by ID
+    $(document).ready(function(){
+        // Highlight element with id mark
+        $("#mark").css("background", "yellow");
+    });
+
+     // Selecting Elements by Class Name
+    $(document).ready(function(){
+    // Highlight elements with class mark
+    $(".mark").css("background", "blue");
+    });
+
+    // Selecting elements by Element Name
+    $(document).ready(function(){
+        // Highlight elements with element name
+        $("h1").css("background", "red");
+    })
+    </script>
+</head>
+<body>
+
+<p id="mark">Hello World!.</p>
+
+<p class="mark">This is a paragraph.</p>
+
+<h1>This is another paragraph.</h1>
+
+</body>
+</html>
+
+
+
+
