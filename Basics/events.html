@@ -1,0 +1,203 @@
+<!--
+jQuery Events: 
+Events are often triggered by the user's interaction with the web page, such as when a link or button is clicked, 
+text is entered into an input box or textarea, selection is made in a select box, key is pressed on the keyboard, the mouse pointer is moved etc.
+
+jQuery enhances the basic event-handling mechanisms by offering the events methods for most native browser events, 
+some of these methods are ready(), click(), keypress(), focus(), blur(), change(), etc.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Executing a Function on Click Event in jQuery</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"> </script>
+<style>
+    p{
+        padding: 20px;
+        font: 20px sans-serif;
+        background: khaki;
+    }
+    p.highlight{
+        background: yellow;
+    }
+
+    h2{
+        padding: 20px;
+        font: 20px sans-serif;
+        background: rgb(218, 67, 50);
+    }
+    h1{
+        padding: 20px;
+        font: 20px sans-serif;
+        background: #f2f2f2;
+    }
+    h1.highlight{
+        background: yellow;
+    }
+    h3{
+        padding: 10px;
+        background: lightgreen;
+        display: none;
+    }
+    h4{
+        padding: 10px;
+        background:blueviolet;
+        display: none;
+    }
+    div{
+        margin: 20px 0;
+    }
+    .error{
+        color: red;
+    }
+</style>
+<script>
+    // Mouse Events: The click() Method - Executing a Function on single click Event in jQuery
+$(document).ready(function(){
+    $("p").click(function(){
+        $(this).slideUp();
+    });
+});
+
+// Mouse Events: The dblclick() Method - Executing a Function on Double-click Event in jQuery
+$(document).ready(function(){
+$("h2").dblclick(function(){
+    $(this).slideUp();
+});
+});
+
+// The hover() Method: 
+$(document).ready(function(){
+    $("h1").hover(function(){
+        $(this).addClass("highlight");
+    }, function(){
+        $(this).removeClass("highlight");
+    });
+});
+
+//The mouseenter() Method & The mouseleave() Method
+$(document).ready(function(){
+    $("p").mouseenter(function(){
+        $(this).addClass("highlight");
+    });
+    $("p").mouseleave(function(){
+        $(this).removeClass("highlight");
+    });
+});
+
+//Keyboard Events: The keypress() Method
+$(document).ready(function(){
+    var i = 0;
+    $('input[type="text"]').keypress(function(){
+        $("span").text(i += 1);
+        $("h3").show().fadeOut();
+    });
+});
+
+//Keyboard Events: The keypress() Method
+$(document).ready(function(){
+    var i=0;
+    $('input[type="password"]').keydown(function(){
+        $("span").text(i+=1);
+        $("h4").show().fadeOut();
+    });
+});
+
+//Keyboard Events: The keyup() Method
+$(document).ready(function(){
+    var i=0;
+    $('input[type = "text"]').keyup(function(){
+        $("span").text(i+=1);
+        $("h5").show().fadeOut();
+    });
+});
+
+//Form Events: The change() Method
+$(document).ready(function(){
+    $("select").change(function(){
+        var selectedOption = $(this).find(":selected").val();
+        alert("You have selected - " + selectedOption);
+    });
+});
+
+//Form Events: The focus() Method
+$(document).ready(function(){
+    $("input").focus(function(){
+    $(this).next("span").show().fadeOut("slow");
+    });
+});
+
+//Form Events: The blur() Method
+$(document).ready(function(){
+    $("input").blur(function(){
+        $(this).next("span").show().fadeOut("slow");
+    });
+});
+
+//Form Events: The submit() Method
+$(document).ready(function(){
+    $("form").submit(function(event){
+        var regex = /^[a-zA-Z]+$/;
+        var currentValue = $("#firstName").val();
+        if(regex.test(currentValue) == false){
+            $("#result").html('<p class="error">Not valid!</p>').show().fadeOut(1000);
+            // Preventing form submission
+            event.preventDefault();
+        }
+    });
+});
+
+//Document/Window Events: The ready() Method
+
+//Document/Window Events: The resize() Method
+$(document).ready(function(){
+    $(window).resize(function() {
+        $(window).bind("resize", function(){ 
+            $("p").text("Window width: " + $(window).width() + ", " + "Window height: " + $(window).height());
+        });
+    });
+});
+
+//Document/Window Events: The scroll() Method
+$(document).ready(function(){
+    $(window).scroll(function() {
+        $("p").show().fadeOut("slow");
+    });
+});
+
+</script>
+</head>
+<body>
+    <p>Click on me and I'll disappear.</p>
+    <p>Click on me and I'll disappear.</p>
+    <p>Click on me and I'll disappear.</p>
+    <h2>Double Click on Me</h2>
+    <h1>Hover on Me</h1>
+    <input type="text">
+    <div>Keypress: <span>0</span></div>
+    <h3>Keypress is triggered.</h3>
+    <input type="password">
+    <div>password:<span>0</span></div>
+    <h4>Keydown is triggered</h4>
+    <form>
+        <label>City:</label>
+        <select>
+            <option>London</option>
+            <option>Paris</option>
+            <option>New York</option>
+        </select>
+    </form>
+
+    <form action="/examples/html/action.php" method="post" id="users">
+        <label for="firstName">First Name:</label>
+        <input type="text" name="first-name" id="firstName">
+        <input type="submit" value="Submit">
+        <div id="result"></div>
+    </form>   
+</body>
+</html>

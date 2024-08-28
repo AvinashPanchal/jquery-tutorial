@@ -1,0 +1,118 @@
+<!--
+jQuery Selectors: Selectors in jQuery are functions that primarily focus on selecting particular 
+HTML elements and modifying them as per the action they need to perform. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Select Element by Class</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"> </script>
+  
+  <script>
+    // Selecting Elements by ID
+    $(document).ready(function(){
+        $("#mark").css("background", "yellow"); // Highlight element with id mark
+    });
+
+     // Selecting Elements by Class Name
+    $(document).ready(function(){
+    $(".mark").css("background", "blue"); // Highlight elements with class mark
+    });
+
+    // Selecting elements by Element Name
+    $(document).ready(function(){
+        $("h1").css("background", "red"); // Highlight elements with element name
+    });
+
+    //Selecting Elements by Attribute
+    $(document).ready(function(){
+        $('input[type="text"]').css("background", "crimson");  // Highlight paragraph elements
+    });
+
+    //Selecting Elements by Compound CSS Selector
+    $(document).ready(function(){
+    $("p.mark").css("background", "yellow"); // Highlight only paragraph elements with class mark
+    $("#mark span").css("background", "yellow"); // Highlight only span elements inside the element with ID mark
+    $("ul li").css("background", "red");  // Highlight li elements inside the ul elements
+    $("ul#mark li").css("background", "yellow");  // Highlight li elements only inside the ul element with id mark
+    $("ul.mark li").css("background", "green"); // Highlight li elements inside all the ul element with class mark
+    $('a[target="_blank"]').css("background", "yellow");  // Highlight all anchor elements with target blank
+    });
+
+    //jQuery Custom Selector
+    $(document).ready(function(){
+      $("tr:odd").css("background", "yellow"); // Highlight table rows appearing at odd places
+      $("tr:even").css("background", "orange"); // Highlight table rows appearing at even places
+      $("p:first").css("background", "red"); // Highlight first paragraph element
+      $("p:last").css("background", "green"); // Highlight last paragraph element
+      $("form :text").css("background", "purple");  // Highlight all input elements with type text inside a form
+      $("form :password").css("background", "blue"); // Highlight all input elements with type password inside a form
+      $("form :submit").css("background", "violet");   // Highlight all input elements with type submit inside a form
+    });
+    </script>
+</head>
+<body>
+
+<p id="mark">Hello World!.</p>
+
+<p class="mark">This is a paragraph.</p>
+
+<h1>This is another paragraph.</h1>
+
+<form>
+    <label>Name: <input type="text"></label>
+    <label>Password: <input type="password"></label>
+    <input type="submit" value="Sign In">
+</form>
+<ul>
+    <li>List item one</li>
+    <li>List item two</li>
+    <li>List item three</li>
+</ul>
+<ul id="mark">
+    <li>List item one</li>
+    <li>List <span>item two</span></li>
+    <li>List item three</li>
+</ul>
+<ul class="mark">
+    <li>List item one</li>
+    <li>List item two</li>
+    <li>List item three</li>
+</ul>
+<p>Go to <a href="https://www.tutorialrepublic.com/" target="_blank">Home page</a></p>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>John Carter</td>
+            <td>johncarter@mail.com</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Peter Parker</td>
+            <td>peterparker@mail.com</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>John Rambo</td>
+            <td>johnrambo@mail.com</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
+
+
+
+
