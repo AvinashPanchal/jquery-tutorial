@@ -1,0 +1,59 @@
+<!--
+jQuery Chaining: The jQuery provides another robust feature called method chaining that allows us to perform multiple 
+action on the same set of elements, all within a single line of code.
+
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Method Chaining</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<style>
+/* Some custom styles to beautify this example */
+p {
+    width: 200px;
+	padding: 40px 0;
+	font: bold 24px sans-serif;
+	text-align: center;
+    background: #aaccaa;
+    border: 1px solid #63a063;
+    box-sizing: border-box;
+}
+.test{
+		padding: 15px;
+        background: yellow;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    $(".start").click(function(){
+        $("p").animate({width: "100%"}).animate({fontSize: "46px"}).animate({borderWidth: 30});
+    });
+    $(".reset").click(function(){
+        $("p").removeAttr("style");
+    });
+});  
+$(document).ready(function(){
+    $("button").click(function(){
+        // This will work
+        $("h1").html("Hello World!").addClass("test").fadeOut(1000);
+        
+        // This will NOT work - No Parameter pass in html like above
+        $("p").html().addClass("test");
+    });
+});
+</script>
+</head>
+<body>
+    <p>Hello World!</p>
+    <button type="button" class="start">Start Chaining</button>
+    <button type="button" class="reset">Reset</button>
+
+    <h1>This is a heading</h1>
+    <p>This is a paragraph.</p>
+    <button type="button">Start Chaining</button>
+</body>
+</html>

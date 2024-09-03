@@ -1,0 +1,64 @@
+<!--
+jQuery Animation Effects: The jQuery animate() method is used to create custom animations. 
+The animate() method is typically used to animate numeric CSS properties, for example, width, 
+height, margin, padding, opacity, top, left, etc. but the non-numeric properties such as color or background-color 
+cannot be animated using the basic jQuery functionality.
+
+In addition to the numeric values, each property can take the strings 'show', 'hide', and 'toggle'.
+
+Syntax:
+$(selector).animate({ properties }, duration, callback);
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Animation Effects</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"> </script>
+  <style>
+   img{
+    position: relative;
+   }
+   .box{
+        width: 100px;
+        height: 100px;
+        background: #9d7ede;
+        margin-top: 30px;
+        border-style: solid; /* Required to animate border width */
+        border-color: #6f40ce;
+    }
+  </style>
+  <script>
+  $(document).ready(function(){
+    $("button").click(function(){
+        $("img").animate({
+            left:300
+        });
+    });
+  });
+  $(document).ready(function(){
+    $("button").click(function(){
+        $(".box")
+            .animate({width: "300px"})
+            .animate({height: "300px"})
+            .animate({marginLeft: "150px"})
+            .animate({borderWidth: "10px"})
+            .animate({opacity: 0.5});
+    });
+});
+  </script>
+</head>
+<body>
+    <button type="button" class=""> Animate Button </button>
+    <img src="./img/elephant.jpg" class=""> 
+
+    <button type="button">Start Animation</button>
+    <div class="box"></div>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!--
+jQuery Sliding Effects: The jQuery slideUp() and slideDown() methods is used to hide or show 
+the HTML elements by gradually decreasing or increasing their height (i.e. by sliding them up or down).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Sliding Effects</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"> </script>
+  <style>
+   p{
+    padding: 10px;
+    color: aliceblue;
+    background-color: blue;
+   }
+  </style>
+  <script>
+    $(document).ready(function(){
+
+        $(".slide-up-btn").click(function(){
+        $("p").slideUp();
+        });
+
+        $(".slide-down-btn").click(function(){
+            $("p").slideDown();
+        });
+        
+    });
+  </script>
+</head>
+<body>
+    <button type="button" class="slide-up-btn">Slide Up Paragraphs</button>
+    <button type="button" class="slide-down-btn">Slide Down Paragraphs</button>
+
+    <p>This is slide Effects.</p>
+    <p>This is another Slide Effects.</p>
+    
+</body>
+</html>

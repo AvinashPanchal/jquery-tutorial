@@ -1,0 +1,74 @@
+<!--
+
+jQuery Stop Animations: The jQuery stop() method is used to stop the jQuery animations or effects 
+currently running on the selected elements before it completes.
+
+The basic syntax of the jQuery stop() method can be given with:
+$(selector).stop(stopAll, goToEnd);
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery Stop Currently Running Animations</title>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"> </script>
+<style>
+    img{
+        position: relative; /* Required to move element */
+    }
+    .box{
+        width: 300px;
+        height: 200px;
+        background: #9d7ede;
+        margin-top: 20px;
+        border: 3px solid #6f40ce;
+    }
+</style>
+<script>
+$(document).ready(function(){
+    // Start animation
+    $(".start-btn").click(function(){
+      $("img").animate({left: "+=250px"}, 2000);
+    });
+
+    // Stop running animation
+    $(".stop-btn").click(function(){
+      $("img").stop();
+    });
+    
+    // Start animation in the opposite direction
+    $(".back-btn").click(function(){
+      $("img").animate({left: "-=250px"}, 2000);
+    });
+
+    // Reset to default
+    $(".reset-btn").click(function(){
+      $("img").animate({left: "0"}, "fast");
+    });
+});
+$(document).ready(function(){
+    // Kill and toggle the current sliding animation
+    $(".toggle-btn").on("click", function(){
+        $(".box").stop().slideToggle(1000);
+    });
+});
+</script>
+</head>
+<body>
+    <button type="button" class="start-btn">Start</button>
+    <button type="button" class="stop-btn">Stop</button>
+    <button type="button" class="back-btn">Back</button>
+    <button type="button" class="reset-btn">Reset</button>
+    <p>
+    	<img src="./img/astro.png" alt="Astrologer">
+    </p>
+
+    <button type="button" class="toggle-btn">Slide Toggle</button>
+    <div class="box"></div>
+</body>
+</html>                                		
+
